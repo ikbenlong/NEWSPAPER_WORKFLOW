@@ -31,17 +31,15 @@ image = (
         "python-dotenv>=1.0.0",
         "requests>=2.31.0",
     )
+    .add_local_dir("tools", remote_path="/app/tools")
+    .add_local_dir("Logo",  remote_path="/app/Logo")
 )
-
-tools_mount = modal.Mount.from_local_dir("tools", remote_path="/app/tools")
-logo_mount  = modal.Mount.from_local_dir("Logo",  remote_path="/app/Logo")
 
 
 @app.function(
     image=image,
     schedule=modal.Cron("0 8 * * 1"),  # Every Monday at 08:00 UTC
     secrets=[modal.Secret.from_name("newsletter-secrets")],
-    mounts=[tools_mount, logo_mount],
     timeout=300,
 )
 def send_weekly_newsletter():
