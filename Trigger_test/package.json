@@ -1,0 +1,19 @@
+{
+  "name": "btc-briefing",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npx trigger.dev@4.4.4 dev",
+    "deploy": "npx trigger.dev@4.4.4 deploy"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@trigger.dev/sdk": "^4.4.4",
+    "nodemailer": "^6.9.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/nodemailer": "^6.4.0",
+    "typescript": "^5.0.0"
+  }
+}
